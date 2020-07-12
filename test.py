@@ -1,3 +1,5 @@
+import requests
+import logging
 import time
 import os
 import json
@@ -10,18 +12,19 @@ import modulek as md
 
 print(c(7))
 
-class srkf (md.Car):
-  def __init__(self,w):
-     print("initnax ",w)
+class srkf(md.Car):
+  def __init__(self, w, shlyapx):
+    super().__init__(shlyapx) 
+    print("initnax ",w)
   def blab(self, fjh):
      print(fjh)
      self.bla(434)
 #    pass
 
-rrrr = md.Car()
+rrrr = md.Car("Carrrrrrrrrrrrrrrinit1")
 rrrr.bla(333333333333333)
 
-rrr = srkf("877")
+rrr = srkf("877","Carrrrrrrrrrrrrrrinit2")
 rrr.blab("4yty334")
 
 
@@ -31,18 +34,14 @@ rrr.blab("4yty334")
 
 
 
-jsonInptFl = open("/root/inptFl.json", mode='r+', encoding='utf_8')
+with open("/root/inptFl.json", mode='r+', encoding='utf_8') as jsonInptFl:
+ jsonBffr = json.load(jsonInptFl, strict=False)
 
+jsonOtptFl = open("/root/otptFl.json", mode='r+', encoding='utf_8')
 
-jsonBffr = json.load(jsonInptFl, strict=False)
-
-jsonOtptFl = open("/root/OtptFl.json", mode='r+', encoding='utf_8')
-
-json.dump(jsonBffr, jsonOtptFl)
+#json.dump(jsonBffr, jsonOtptFl)
 
 jsonOtptFl.close()
-
-jsonInptFl.close()
 
 
 
@@ -59,7 +58,9 @@ print(9 ** 6)
 hg = " dsd"
 js = 23
 print("fdfjdjfhjd ",str (float(js)),hg)
+
 nud = input("enter firstjhh:")
+
 print(nud + hg)
 
 
@@ -91,6 +92,12 @@ def xoxo(stri):
   return stri
 xoxo(nud)
 
-
-lya =  lambda x, y: print(x - y)
-lya(int(nud), float(nud))
+try:
+ lya =  lambda x, y: print(x - y)
+ lya(int(nud), float(nud))
+except:
+ print("except: r u fcking out of your fcking mind, and don't you see it acceps integer value only!!!?")
+else:
+ print("else")
+finally:
+ print("finaly")

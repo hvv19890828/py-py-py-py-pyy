@@ -1,8 +1,9 @@
 class Car:
+  def __init__(self,shlyap):
+        print(shlyap)
   jm = 33
   js = {"wewe": "ds3"}
   xerf = " ww"
- 
   def bla(self, j):
      print(j + self.jm, self.js, self.xerf)
      self.xerf =  "qq"
