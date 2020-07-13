@@ -34,10 +34,10 @@ rrr.blab("4yty334")
 
 
 
-with open("/root/inptFl.json", mode='r+', encoding='utf_8') as jsonInptFl:
+with open("inptFl.json", mode='r+', encoding='utf_8') as jsonInptFl:
  jsonBffr = json.load(jsonInptFl, strict=False)
 
-jsonOtptFl = open("/root/otptFl.json", mode='r+', encoding='utf_8')
+jsonOtptFl = open("otptFl.json", mode='r+', encoding='utf_8')
 
 #json.dump(jsonBffr, jsonOtptFl)
 
