@@ -10,6 +10,17 @@ import random as rmdm
 from math import cos as c
 import modulek as mod
 
+
+testText = "tvm1wewxcewew" \
+            "fdfdfd342343243fdfdf" \
+            "sfdfsfsfsfsfsf"
+textSchema = r"342343243"
+rEx = re.findall(textSchema,testText)
+print("print(x,rEx): ",rEx)
+
+
+
+
 print("printed cos from 7 as 'c'",c(7))
 
 class child(mod.parent):
@@ -38,11 +49,6 @@ with open("inptFl.json", mode='r+', encoding='utf_8') as jsonInptFl:
  jsonBffr = json.load(jsonInptFl, strict=False)
 
 jsonOtptFl = open("otptFl.json", mode='r+', encoding='utf_8')
-
-testText = "tvm1"
-textSchema = r"tvm1"
-rEx = re.findall(textSchema,testText)
-print("print(x,rEx): ",rEx)
 
 #json.dump(jsonBffr, jsonOtptFl)
 
