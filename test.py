@@ -39,6 +39,11 @@ with open("inptFl.json", mode='r+', encoding='utf_8') as jsonInptFl:
 
 jsonOtptFl = open("otptFl.json", mode='r+', encoding='utf_8')
 
+testText = "tvm1"
+textSchema = r"tvm1"
+rEx = re.findall(textSchema,testText)
+print("print(x,rEx): ",rEx)
+
 #json.dump(jsonBffr, jsonOtptFl)
 
 jsonOtptFl.close()
