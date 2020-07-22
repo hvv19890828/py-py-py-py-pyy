@@ -11,6 +11,18 @@ from math import cos as c
 import modulek as mod
 
 
+
+"""
+
+\d = any digit
+\D = any non digit
+\w = any alphabet symb
+\W = any non alphabet symb
+\s = any space
+\S = any non space
+
+"""
+
 testText = "tvm1wewxcewew" \
             "fdfdfd342343243fdfdf" \
             "sfdfsfsfsfsfsf"
@@ -50,6 +62,9 @@ with open("inptFl.json", mode='r+', encoding='utf_8') as jsonInptFl:
 
 jsonOtptFl = open("otptFl.json", mode='r+', encoding='utf_8')
 
+textets = jsonOtptFl.read()
+rEx = re.findall(r"ip",textets)
+print("print(x,rEx): ",rEx)
 #json.dump(jsonBffr, jsonOtptFl)
 
 jsonOtptFl.close()
