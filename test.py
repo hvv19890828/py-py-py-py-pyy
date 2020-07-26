@@ -1,3 +1,4 @@
+import mysql.connector
 import requests
 import logging
 import time
@@ -11,6 +12,18 @@ from math import cos as c
 import modulek as mod
 
 
+
+db = mysql.connector.connect(
+     host="localhost",
+     user="root",
+     passwd="bF701fE08c",
+     database="hvv",
+     auth_plugin='mysql_native_password'
+     )
+
+mycursor = db.cursor()
+
+db.close()
 
 """
 
