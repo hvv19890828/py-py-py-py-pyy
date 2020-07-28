@@ -13,17 +13,19 @@ from math import cos as c
 import modulek as mod
 
 
-
+'''
+docker run --name mysql-hvv --restart always --network host  -v ~/datadir:/var/lib/mysql  -v ~/datadir:/etc/mysql/conf.d  -e MYSQL_DATABASE=hvv  -e MYSQL_ROOT_PASSWORD=user1! -d mysql
+'''
 db = mysql.connector.connect(
      host="localhost",
      user="root",
-     passwd="bF701fE08c",
+     passwd="user1!",
      database="hvv",
      auth_plugin='mysql_native_password'
      )
 
-mycursor = db.cursor()
-
+mycursor = db.cursor("")
+#mycursor.execute()
 db.close()
 
 """
