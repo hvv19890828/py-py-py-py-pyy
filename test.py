@@ -21,11 +21,11 @@ db = mysql.connector.connect(
      user="root",
      passwd="user1!",
      database="hvv",
-     auth_plugin='mysql_native_password'
+     auth_plugin="mysql_native_password"
      )
 
-mycursor = db.cursor("")
-#mycursor.execute()
+mycursor = db.cursor()
+#mycursor.execute("")
 db.close()
 
 """
