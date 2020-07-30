@@ -13,6 +13,11 @@ from math import cos as c
 import modulek as mod
 
 
+
+r = requests.get('http://graph.facebook.com/')
+print(r.json()['error']['fbtrace_id'])
+
+
 '''
 docker run --name mysql-hvv --restart always --network host  -v ~/datadir:/var/lib/mysql  -v ~/datadir:/etc/mysql/conf.d  -e MYSQL_DATABASE=hvv  -e MYSQL_ROOT_PASSWORD=user1! -d mysql
 '''
@@ -25,7 +30,11 @@ db = mysql.connector.connect(
      )
 
 mycursor = db.cursor()
-#mycursor.execute("")
+#mycursor.execute("create table xerson (name varchar(50), age int, id int primary key auto_increment)")
+#db.commit()
+mycursor.execute("describe person")
+for i in mycursor:
+   print(i)
 db.close()
 
 """
