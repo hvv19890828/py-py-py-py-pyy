@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-#in case of facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
-import mysql.connector #pip3 install install mysql-connector-python
+#in case if facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
+import mysql.connector #pip3 install mysql-connector-python
 import requests #pip3 install requests may be required
 import logging
 import time
@@ -17,9 +17,9 @@ import modulek as mod
 
 try:
  r = requests.get('http://graph.facebook.com/')
- print("Returning a kind of token as a result of a Facebook API test call" +  r.json()['error']['fbtrace_id'])
+ print("Returning a kind of a token as a result of a Facebook API test call" +  r.json()['error']['fbtrace_id'])
 except:
- print("well ... it seems that there is no network connection ... not a really big deal .. but you know me .. I'm already peased off")
+ print("well ... it seems that there is no network connection ... not a really big deal .. but you know me .. I'm already pissed off ")
  
 
 '''
@@ -45,7 +45,7 @@ try:
    print(i)
  db.close()
 except:
- print("ok ... lookslike there is no db connected ... but anyway fuck that and go on ...")
+ print("ok ... looks like there is no db connected ... but anyway fuck that and go on ...")
 
 """
 
