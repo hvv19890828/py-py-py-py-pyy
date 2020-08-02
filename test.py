@@ -15,7 +15,7 @@ import modulek as mod
 
 
 r = requests.get('http://graph.facebook.com/')
-print(r.json()['error']['fbtrace_id'])
+print("Returning a kind of token after a Facebook API call" +  r.json()['error']['fbtrace_id'])
 
 
 '''
