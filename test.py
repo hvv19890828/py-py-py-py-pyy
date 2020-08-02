@@ -13,15 +13,18 @@ from math import cos as c
 import modulek as mod
 
 
-
-r = requests.get('http://graph.facebook.com/')
-print("Returning a kind of token after a Facebook API call" +  r.json()['error']['fbtrace_id'])
-
+try:
+ r = requests.get('http://graph.facebook.com/')
+ print("Returning a kind of token after a Facebook API call" +  r.json()['error']['fbtrace_id'])
+except:
+ print("well ... it seems that there is no network connection ... not a really big deal .. but you know me .. I'm already peased off")
+ 
 
 '''
 docker run --name mysql-hvv --restart always --network host  -v ~/datadir:/var/lib/mysql  -v ~/datadir:/etc/mysql/conf.d  -e MYSQL_DATABASE=hvv  -e MYSQL_ROOT_PASSWORD=user1! -d mysql
 '''
-db = mysql.connector.connect(
+try:
+ db = mysql.connector.connect(
      host="localhost",
      user="root",
      passwd="user1!",
@@ -29,13 +32,18 @@ db = mysql.connector.connect(
      auth_plugin="mysql_native_password"
      )
 
-mycursor = db.cursor()
-#mycursor.execute("create table xerson (name varchar(50), age int, id int primary key auto_increment)")
+ mycursor = db.cursor()
+ try:
+  mycursor.execute("create table xerson (name varchar(50), age int, id int primary key auto_increment)")
+ except:
+  print("now .. I'm almost sure that such db name is already occupied .. so consider choosing another on ... but fck man why shold I monitor this shit? start being more attentive ...")
 #db.commit()
-mycursor.execute("describe person")
-for i in mycursor:
+ mycursor.execute("describe person")
+ for i in mycursor:
    print(i)
-db.close()
+ db.close()
+except:
+ print("ok ... lookslike there is no db connected ... but anyway fuck that and go on ...")
 
 """
 
