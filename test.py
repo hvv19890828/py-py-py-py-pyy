@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-import mysql.connector
-import requests
+
+#in case of facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
+import mysql.connector #pip3 install install mysql-connector-python
+import requests #pip install requests may be required
 import logging
 import time
 import os
