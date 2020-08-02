@@ -15,7 +15,7 @@ import modulek as mod
 
 try:
  r = requests.get('http://graph.facebook.com/')
- print("Returning a kind of token after a Facebook API call" +  r.json()['error']['fbtrace_id'])
+ print("Returning a kind of token as a result of a Facebook API test call" +  r.json()['error']['fbtrace_id'])
 except:
  print("well ... it seems that there is no network connection ... not a really big deal .. but you know me .. I'm already peased off")
  
