@@ -36,7 +36,7 @@ try:
  try:
   mycursor.execute("create table xerson (name varchar(50), age int, id int primary key auto_increment)")
  except:
-  print("now .. I'm almost sure that such db name is already occupied .. so consider choosing another on ... but fck man why shold I monitor this shit? start being more attentive ...")
+  print("now .. I'm almost sure that such table name is already occupied in this db .. so consider choosing another one ... but fck man why shold I monitor this shit? start being more attentive ...")
 #db.commit()
  mycursor.execute("describe person")
  for i in mycursor:
