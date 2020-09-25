@@ -8,11 +8,15 @@ import time
 import os
 import json
 import sys
-import time
 import re
 import random as rmdm
 from math import cos as c
 import modulek as mod
+import argparse
+import zipfile
+from pathlib import Path
+import threading
+
 
 
 try:
@@ -77,16 +81,19 @@ class child(mod.parent):
   def child_func1(self, arg1):
      print("printed arg1 from child child_func1", arg1)
      self.func1(434)
+  forFun = "to be returned from fun"
+  def fun(self): 
+    return self
+
 #    pass
 
 par_obj = mod.parent("par_obj mod.parent initiation with arg")
 par_obj.func1(333333333333333)
 
 child_obj = child("877","child_obj child initiation with second arg")
-child_obj.child_func1("arg1 of child_obj.func1")
-
-
-
+print(child_obj.child_func1("arg1 of child_obj.func1"))
+print(child_obj.fun().forFun)
+print(mod.parent("independent parent").func1(67676))
 #-------------------------------------
 
 
@@ -102,6 +109,7 @@ rEx = re.findall(r"ip",textets)
 print("print(x,rEx): ",rEx)
 #json.dump(jsonBffr, jsonOtptFl)
 
+jsonInptFl.close()
 jsonOtptFl.close()
 
 
@@ -144,7 +152,7 @@ while j < 10:
 
 arry = [32323,545445,232535,["no,d",3,3434.4344,[{"wew": "uyuyuuyu"}]]]
 cort = ("dasdsd",'sdsds',2323)
-dict = ({"dict1": "dict value"})
+dict = {"dict1": "dict value"}
 print("print("", dict['dict1'])" + dict['dict1'])
 plur = {"434","erer"}
 
