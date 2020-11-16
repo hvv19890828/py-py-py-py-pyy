@@ -18,17 +18,67 @@ from pathlib import Path
 import threading
 
 
+def generator():
+    for i in range(6):
+        yield i*i
+g = generator()
+for i in g:
+    print(i)
+print(str(g))
+
+
+
+def outer_function():
+    a = 5
+    def inner_function():
+        nonlocal a
+        a = 10
+        print("Inner function: ",a)
+    inner_function()
+    print("Outer function: ",a)
+
+outer_function()
+
+aglo = 13.3
+bglo = 11
+def improper_return_function():
+    global bglo
+    print("print bglo " + str(bglo))
+    bglo = 13
+    print("print bglo " + str(bglo))
+    if (aglo % 2) == 0:
+        return True
+    else:
+        return aglo % 2
+x = improper_return_function()
+print(x)
+print("print bglo " + str(bglo))
+
+b = 1
+a = [ b , 2 , 3 ]
+del b
+print(str(tuple(a)))
+
+
+def pyfunc(r):
+    for x in range(r):
+        print(' '*(r-x-1)+'*'*(2*x+1))    
+pyfunc(9)
+
 
 try:
- r = requests.get('http://graph.facebook.com/')
- print("Returning a kind of token as a result of a Facebook API test call" +  r.json()['error']['fbtrace_id'])
+ r = requests.post('http://graph.facebook.com/')
+ print("Returning a kind of token as a result of a Facebook API test call " +  r.json()['error']['fbtrace_id'])
 except:
  print("well ... it seems that there is no network connection ... not a really big deal .. but you know me .. I'm already pissed off ")
  
 
 '''
+
 docker run --name mysql-hvv --restart always --network host  -v ~/datadir:/var/lib/mysql  -v ~/datadir:/etc/mysql/conf.d  -e MYSQL_DATABASE=hvv  -e MYSQL_ROOT_PASSWORD=user1! -d mysql
+
 '''
+
 try:
  db = mysql.connector.connect(
      host="localhost",
@@ -155,6 +205,7 @@ cort = ("dasdsd",'sdsds',2323)
 dict = {"dict1": "dict value"}
 print("print("", dict['dict1'])" + dict['dict1'])
 plur = {"434","erer"}
+
 
 def xoxo(stri):
   return stri
