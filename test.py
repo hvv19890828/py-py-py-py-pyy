@@ -94,7 +94,7 @@ try:
  except:
   print("now .. I'm almost sure that such table name is already occupied in this db .. so consider choosing another one ... but fck man why shold I monitor this shit? start being more attentive ...")
 #db.commit()
- mycursor.execute("describe person")
+ mycursor.execute("describe xerson")
  for i in mycursor:
    print(i)
  db.close()
