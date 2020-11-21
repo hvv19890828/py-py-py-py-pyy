@@ -8,3 +8,4 @@ class parent:
      print("'printed arg1 + self.int, self.dict1, self.strng'from func1 ", arg1 + self.int, self.dict1, self.strng)
      self.strng =  "par_string value after reassigned incidev parent_func1"
      print("printed 'arg1+arg1," ", self.dict1," ", self.strng' from func1: ", arg1+arg1," ", self.dict1," ", self.strng)
+#afterwow
