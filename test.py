@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-#in case if facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
+#in case of facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
 import mysql.connector #pip3 install mysql-connector-python
 import requests #pip3 install requests may be required
 import logging
