@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-#in case of facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
+#in case if facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
 import mysql.connector #pip3 install mysql-connector-python
 import requests #pip3 install requests may be required
 import logging
@@ -17,7 +17,6 @@ import zipfile
 from pathlib import Path
 import threading
 
-#before git rebase develop
 
 def generator():
     for i in range(6):
@@ -34,9 +33,9 @@ def outer_function():
     def inner_function():
         nonlocal a
         a = 10
-        print("Inner function: ",a)
+        print("Inner fun: ",a)
     inner_function()
-    print("Outer function: ",a)
+    print("Outer fun: ",a)
 
 outer_function()
 
