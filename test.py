@@ -17,8 +17,6 @@ import zipfile
 from pathlib import Path
 import threading
 
-#test 3
-
 
 def generator():
     for i in range(6):
