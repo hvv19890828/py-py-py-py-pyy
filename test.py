@@ -17,7 +17,8 @@ import zipfile
 from pathlib import Path
 import threading
 
-#test 5
+#test 4
+
 
 
 def generator():
@@ -35,9 +36,9 @@ def outer_function():
     def inner_function():
         nonlocal a
         a = 10
-        print("Inner function: ",a)
+        print("Inner fun: ",a)
     inner_function()
-    print("Outer function: ",a)
+    print("Outer fun: ",a)
 
 outer_function()
 
