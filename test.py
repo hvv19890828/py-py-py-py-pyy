@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 
 #in case if facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
@@ -16,9 +17,6 @@ import argparse
 import zipfile
 from pathlib import Path
 import threading
-
-#test 4
-
 
 
 def generator():
