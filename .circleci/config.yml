@@ -11,6 +11,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Python deps
+          command: pip3 install -r requirements.txt
+      - run:
           command: python3 test.py
           name: Test
 
