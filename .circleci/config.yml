@@ -11,8 +11,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: upgrade pip
-          command: /usr/local/bin/python -m pip install --upgrade pip
+          name: apt-get update
+          command: apt-get update -y
+      - run:
+          name: apt-get install -y python3 pip3
+          command: apt-get install -y python3 python3-pip
       - run:
           name: Install Python deps
           command: pip3 install -r requirements.txt
