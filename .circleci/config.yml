@@ -3,36 +3,20 @@ executors:
   python:
     docker:
     - image: circleci/python:3.8
-#    - image: ubuntu:20.04
 jobs:
   build-and-test:
     executor: python
     steps:
       - checkout
-#      - run:
-#          name: apt-get update
-#          command: apt-get update -y
-#      - run:
-#          name: apt-get install -y python3 pip3
-#          command: apt-get install -y python3 python3-pip
       - run:
           name: upgrade pip
           command: /usr/local/bin/python -m pip install --upgrade pip
       - run:
-          name: pip3 install mysql-connector-python
-          command: pip3 install mysql-connector-python
-      - run:
-          name: pip3 install requests
-          command: pip3 install requests
-#      - run:
-#          name: Install Python deps
-#          command: pip3 install -r requirements.txt
+          name: install Python deps
+          command: pip3 install -r requirements.txt
       - run:
           command: python3 test.py
           name: test-run
-      - run:
-          command: pip3 freeze
-          name: pip3 freeze
 workflows:
   main:
     jobs:
