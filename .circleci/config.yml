@@ -1,8 +1,13 @@
 version: 2.1
 
+executors:
+  python:
+    docker:
+    - image: circleci/python:3.7
+
 jobs:
   build-and-test:
-    executor: circleci/python:3.7
+    executor: python
     steps:
       - checkout
       - run:
