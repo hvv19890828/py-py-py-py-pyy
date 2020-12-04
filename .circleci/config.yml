@@ -1,10 +1,8 @@
 version: 2.1
-
 executors:
   python:
     docker:
     - image: ubuntu:20.04
-
 jobs:
   build-and-test:
     executor: python
@@ -20,9 +18,11 @@ jobs:
           name: pip3 install mysql-connector-python
           command: pip3 install mysql-connector-python
       - run:
+          name: pip3 install requests
+          command: pip3 install requests
+      - run:
           command: python3 test.py
           name: Test
-
 workflows:
   main:
     jobs:
