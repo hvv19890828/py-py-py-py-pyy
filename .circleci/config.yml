@@ -11,6 +11,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: upgrade pip
+          command: /usr/local/bin/python -m pip install --upgrade pip
+      - run:
           name: Install Python deps
           command: pip3 install -r requirements.txt
       - run:
