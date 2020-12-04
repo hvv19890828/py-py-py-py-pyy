@@ -1,9 +1,13 @@
 version: 2.1
+
 jobs:
   build-and-test:
-    executor: python/default
+    executor: circleci/python
     steps:
       - checkout
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
       - run:
           command: ./manage.py test
           name: Test
