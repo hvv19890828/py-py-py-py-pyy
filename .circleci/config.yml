@@ -23,6 +23,9 @@ jobs:
       - run:
           command: python3 test.py
           name: Test
+      - run:
+          command: pip3 freeze
+          name: pip3 freeze
 workflows:
   main:
     jobs:
