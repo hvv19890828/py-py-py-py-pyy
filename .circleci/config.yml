@@ -3,7 +3,7 @@ version: 2.1
 executors:
   python:
     docker:
-    - image: circleci/python:3.7
+    - image: circleci/python:3.8
 
 jobs:
   build-and-test:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: ./test.py
+          command: python3 test.py
           name: Test
 
 workflows:
