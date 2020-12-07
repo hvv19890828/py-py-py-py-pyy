@@ -17,7 +17,27 @@ jobs:
       - run:
           command: python3 test.py
           name: test-run
+  xbuild-and-test:
+    executor: python
+    steps:
+      - checkout
+      - run:
+          name: upgrade pip
+          command: /usr/local/bin/python -m pip install --upgrade pip
+      - run:
+          name: install Python deps
+          command: pip3 install -r requirements.txt
+      - run:
+          command: python3 test.py
+          name: test-run
 workflows:
   main:
     jobs:
       - build-and-test
+      - xbuild-and-test
+  xmain:
+    jobs:
+      - build-and-test
+      - xbuild-and-test
+      
+      
