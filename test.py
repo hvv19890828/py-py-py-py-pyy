@@ -17,6 +17,7 @@ import zipfile
 from pathlib import Path
 import threading
 
+print("Pkjdksjdskjdhsjrivet Serg")
 
 def generator():
     for i in range(6):
