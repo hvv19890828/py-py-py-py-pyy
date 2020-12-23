@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 
 #in case if facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
@@ -18,6 +17,7 @@ import zipfile
 from pathlib import Path
 import threading
 
+print("Privet Georgiy")
 
 def generator():
     for i in range(6):
@@ -221,3 +221,4 @@ else:
  print("else")
 finally:
  print("finaly")
+
