@@ -18,7 +18,7 @@ from pathlib import Path
 import threading
 
 
-print("Privet Georgiy")
+print("Privet blablabla")
 
 def generator():
     for i in range(6):
