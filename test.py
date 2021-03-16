@@ -1,21 +1,14 @@
 #!/usr/bin/python3
 
+import json
+import re
+from math import cos as c
+
 # in case if facing issues with pip: curl https://bootstrap.pypa.io/get-pip.py | python3
 import mysql.connector  # pip3 install mysql-connector-python
 import requests  # pip3 install requests may be required
-import logging
-import time
-import os
-import json
-import sys
-import re
-import random as rmdm
-from math import cos as c
+
 import modulek as mod
-import argparse
-import zipfile
-from pathlib import Path
-import threading
 
 print("Pkjdksjdskjdhsjrivet Serg")
 
