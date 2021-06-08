@@ -22,8 +22,6 @@ spec:
                 git url: 'https://github.com/hvv19890828/py-py-py-py-pyy.git'
                 sh 'pip3 install mysql-connector-python && pip3 install requests'
                 sh 'python3 test.py'
-                sh 'hostname --fqdn'
-                sh 'echo "FCK!!!"'
             }
         }
     }
