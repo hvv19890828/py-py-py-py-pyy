@@ -10,7 +10,7 @@ import requests  # pip3 install requests may be required
 
 import modulek as mod
 
-print("Pkjdksjdskjdhsjrivet Serg")
+print("Privet")
 
 
 def generator():
