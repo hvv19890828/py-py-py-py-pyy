@@ -17,10 +17,8 @@ if len(sys.argv) == 1:
 else:
    iter_range = int(sys.argv[1])
 
-for iter in range(iter_range):      
-      print("Privet")
-      time.sleep(1)
-      
+for iter in range(1,iter_range+1):
+
       def generator():
           for i in range(6):
               yield i * i
@@ -102,7 +100,7 @@ for iter in range(iter_range):
       
           mycursor = db.cursor()
           try:
-              if iter == 0:
+              if iter == 1:
                  mycursor.execute("drop TABLE data")
               mycursor.execute("CREATE TABLE IF NOT EXISTS data (iteration int, token VARCHAR(255))")
           except:
@@ -233,3 +231,6 @@ for iter in range(iter_range):
           print("else")
       finally:
           print("finaly")
+      
+      print("Iter-"+str(iter)+"/"+str(iter_range))
+      time.sleep(1)
