@@ -50,6 +50,7 @@ spec:
         stage('Image Build') {
             steps {
                 container(name: 'kaniko', shell: '/busybox/sh') {
+                    sh 'apk add -U git'
                     sh 'export VERS=`git tag | grep -E "^x[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1`'
                     sh '''#!/busybox/sh
                     /kaniko/executor --context `pwd` \
