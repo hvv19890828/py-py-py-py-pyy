@@ -35,18 +35,15 @@ spec:
             defaultContainer 'python'
         }
     }
+
+    environment {
+         VERS = sh(returnStdout:  true, script: 'git tag | grep -E "^x[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
+    }
     stages {
         stage('Main') {
             steps {
                 sh 'pip3 install mysql-connector-python && pip3 install requests'
                 sh 'python3 test.py'
-            }
-        }
-        stage('Get GIT Tag') {
-            steps {
-                container("alpine") {
-                    sh 'export VERS=`git tag | grep -E "^x[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1`'
-                }
             }
         }
         stage('Image Build') {
