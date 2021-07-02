@@ -36,11 +36,6 @@ spec:
         }
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/hvv19890828/py-py-py-py-pyy.git'
-            }
-        }
         stage('Main') {
             steps {
                 sh 'pip3 install mysql-connector-python && pip3 install requests'
@@ -50,7 +45,6 @@ spec:
         stage('Image Build') {
             steps {
                 container(name: 'kaniko', shell: '/busybox/sh') {
-                    sh 'apt update -y && apt install -y git'
                     sh 'export VERS=`git tag | grep -E "^x[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1`'
                     sh '''#!/busybox/sh
                     /kaniko/executor --context `pwd` \
