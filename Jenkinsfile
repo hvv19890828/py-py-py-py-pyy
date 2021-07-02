@@ -42,7 +42,6 @@ spec:
                 sh 'python3 test.py'
             }
         }
-        VERS = sh(returnStdout:  true, script: "git tag --sort=-creatordate | head -n 1").trim()
         stage('Get GIT Tag') {
             steps {
                 container("alpine") {
@@ -55,7 +54,7 @@ spec:
                 container(name: 'kaniko', shell: '/busybox/sh') {
                     sh '''#!/busybox/sh
                     /kaniko/executor --context `pwd` \
-                        --destination hvv19890828/py-py-py-py-pyy:${VERS}
+                        --destination hvv19890828/py-py-py-py-pyy
                     '''
                 }
             }
