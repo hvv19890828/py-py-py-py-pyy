@@ -39,6 +39,7 @@ spec:
     environment {
          VERS = sh(returnStdout:  true, script: 'git tag | grep -E "^x[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
     }
+
     stages {
         stage('Main') {
             steps {
@@ -51,7 +52,7 @@ spec:
                 container(name: 'kaniko', shell: '/busybox/sh') {
                     sh '''#!/busybox/sh
                     /kaniko/executor --context `pwd` \
-                        --destination hvv19890828/py-py-py-py-pyy
+                        --destination hvv19890828/py-py-py-py-pyy:${VERS}
                     '''
                 }
             }
