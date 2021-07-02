@@ -6,12 +6,6 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-#  - name: python
-#    image: python:3.8
-#    command:
-#    - sleep
-#    args:
-#    - infinity
   - name: kaniko
     workingDir: /tmp/jenkins
     image: gcr.io/kaniko-project/executor:debug
@@ -32,7 +26,6 @@ spec:
             - key: .dockerconfigjson
               path: config.json
 '''
-#            defaultContainer 'python'
         }
     }
 
@@ -41,12 +34,6 @@ spec:
     }
 
     stages {
-#        stage('Test') {
-#            steps {
-#                sh 'pip3 install mysql-connector-python && pip3 install requests'
-#                sh 'python3 test.py'
-#            }
-#        }
         stage('Image Build') {
             steps {
                 container(name: 'kaniko', shell: '/busybox/sh') {
