@@ -37,7 +37,7 @@ spec:
     }
 
     environment {
-         VERS = sh(returnStdout:  true, script: 'git tag | grep -E "^x[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
+         VERS = sh(returnStdout:  true, script: 'git tag | grep -E "^x[[:digit:]]{1,3}\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
     }
 
     stages {
