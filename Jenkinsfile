@@ -42,7 +42,7 @@ spec:
 
     stages {
         stage('Test') {
-            when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }hvv19890828/develop
+            when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
             steps {
                 sh 'pip3 install mysql-connector-python && pip3 install requests'
                 sh 'python3 test.py'
