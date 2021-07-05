@@ -42,8 +42,8 @@ spec:
 
     stages {
         stage('Test') {
-            when { expression { env.GIT_BRANCH == 'develop' } }
             steps {
+                echo env.GIT_BRANCH
                 sh 'pip3 install mysql-connector-python && pip3 install requests'
                 sh 'python3 test.py'
             }
