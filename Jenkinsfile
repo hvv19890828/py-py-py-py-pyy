@@ -42,12 +42,14 @@ spec:
 
     stages {
         stage('Test') {
+            when { expression { env.GIT_BRANCH.startsWith("mast") != True } }
             steps {
                 sh 'pip3 install mysql-connector-python && pip3 install requests'
                 sh 'python3 test.py'
             }
         }
         stage('Image Build') {
+            when { expression { env.GIT_BRANCH == 'master' } }
             steps {
                 container(name: 'kaniko', shell: '/busybox/sh') {
                     sh '''#!/busybox/sh
