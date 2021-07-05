@@ -42,14 +42,14 @@ spec:
 
     stages {
         stage('Test') {
+            when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }hvv19890828/develop
             steps {
-                echo env.GIT_BRANCH
                 sh 'pip3 install mysql-connector-python && pip3 install requests'
                 sh 'python3 test.py'
             }
         }
         stage('Image Build') {
-            when { expression { env.GIT_BRANCH == 'master' } }
+            when { expression { env.GIT_BRANCH == 'hvv19890828/master' } }
             steps {
                 container(name: 'kaniko', shell: '/busybox/sh') {
                     sh '''#!/busybox/sh
