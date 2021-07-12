@@ -37,7 +37,8 @@ spec:
     }
 
     environment {
-         VERS = sh(returnStdout:  true, script: 'git tag | grep -E "^v[[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
+         VERS    = sh(returnStdout:  true, script: 'git tag | grep -E "^v[[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
+         FULL_BN = sh(returnStdout:  true, script: 'TMPLT=0000 ; SYMB_NUM=$(echo ${BUILD_NUMBER} | wc -c) ; let SYMB_NUM-- ; FULL_BN=${TMPLT::-$SYMB_NUM}').trim()
     }
 
     stages {
