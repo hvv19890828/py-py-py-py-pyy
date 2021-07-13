@@ -38,6 +38,7 @@ spec:
 
     environment {
          VERS    = sh(returnStdout:  true, script: 'git tag | grep -E "^v[[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
+         FULL_BN = sh(returnStdout:  true, script: 'BNMB=${BUILD_NUMBER} ; ZERO_DIGIT_AMOUNT=$((4-${#BNMB})) ; for ((i=1;i<=$ZERO_DIGIT_AMOUNT;i++)) ; do PREF=$PREF"0" ; done ; echo $PREF$BNMB').trim()
     }
 
     stages {
