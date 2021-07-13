@@ -38,7 +38,7 @@ spec:
 
     environment {
          VERS    = sh(returnStdout:  true, script: 'git tag | grep -E "^v[[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
-         FULL_BN = sh(returnStdout:  true, script: 'BNMB=${BUILD_NUMBER} ; ZERO_DIGIT_AMOUNT=$((4-${#BNMB})) ; i=1 ; while [ $i -le $ZERO_DIGIT_AMOUNT ] ; do PREF=$PREF"0" ; i=$(( i + 1 )) ; done ; echo $PREF$BNMB').trim()
+         FULL_BN = sh(returnStdout:  true, script: 'SIMPLE_BN=${BUILD_NUMBER} ; ZERO_DIGIT_AMOUNT=$((4-${#SIMPLE_BN})) ; i=1 ; while [ $i -le $ZERO_DIGIT_AMOUNT ] ; do PREF=$PREF"0" ; i=$(( i + 1 )) ; done ; echo $PREF$SIMPLE_BN').trim()
     }
 
     stages {
@@ -55,7 +55,7 @@ spec:
                 container(name: 'kaniko', shell: '/busybox/sh') {
                     sh '''#!/busybox/sh
                     /kaniko/executor --context `pwd` \
-                        --destination hvv19890828/py-py-py-py-pyy:${VERS}
+                        --destination hvv19890828/py-py-py-py-pyy:${VERS}-${FULL_BN}
                     '''
                 }
             }
