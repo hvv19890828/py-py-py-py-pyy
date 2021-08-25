@@ -56,14 +56,14 @@ spec:
             failFast true
             parallel {
                 stage('MySQL') {
-                   container(name: 'pysql') {
-                       steps {
+                   steps {
+                       container(name: 'pysql') {
                        }
                   }
                 }
                 stage('Python') {
-                  container(name: 'python') {
-                       steps {
+                  steps {
+                       container(name: 'python') {
                            sh 'pip3 install mysql-connector-python && pip3 install requests'
                            sh 'python3 test.py'
                        }
