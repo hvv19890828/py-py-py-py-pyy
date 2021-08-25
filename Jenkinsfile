@@ -19,8 +19,6 @@ spec:
       value: "hvv"
     - name: MYSQL_ROOT_PASSWORD
       value: "user1!"
-    ports:
-    - containerPort: 3306
   - name: kaniko
     workingDir: /tmp/jenkins
     image: gcr.io/kaniko-project/executor:debug
