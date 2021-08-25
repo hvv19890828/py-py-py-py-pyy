@@ -56,7 +56,7 @@ spec:
                 stage('MySQL') {
                    steps {
                        container(name: 'pysql') {
-                           sh 'sleep 100'
+                           sh 'sleep 40'
                        }
                   }
                 }
@@ -64,7 +64,7 @@ spec:
                   steps {
                        container(name: 'python') {
                            sh 'pip3 install mysql-connector-python && pip3 install requests'
-                           sh 'python3 test.py'
+                           sh 'python3 test.py 4'
                        }
                   }
                 }
