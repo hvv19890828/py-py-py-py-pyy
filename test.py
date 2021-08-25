@@ -102,10 +102,9 @@ for iter in range(1,iter_range+1):
           try:
               if iter == 1:
                  mycursor.execute("drop TABLE data")
-#              mycursor.execute("CREATE TABLE IF NOT EXISTS data (iteration int, token VARCHAR(255))")
           except:
               print(
-                  "now .. I'm almost sure that such table name is already occupied in this db .. so consider choosing another one ... but fck man why shold I monitor this shit? start being more attentive ...")
+                  "now .. I'm almost sure that data table name does not exist yet in this db .. so stop trying to drop ... but fck man why shold I monitor this shit? start being more attentive ...")
           mycursor.execute("CREATE TABLE IF NOT EXISTS data (iteration int, token VARCHAR(255))")
           sqlBuff =  "INSERT INTO data(iteration, token) VALUES("+str(iter)+", "+"'"+str(r.json()['error']['fbtrace_id'])+"'"+")"
           mycursor.execute(sqlBuff)
