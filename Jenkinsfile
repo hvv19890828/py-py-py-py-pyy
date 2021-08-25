@@ -58,6 +58,7 @@ spec:
                 stage('MySQL') {
                    steps {
                        container(name: 'pysql') {
+                           sh 'sleep 100'
                        }
                   }
                 }
