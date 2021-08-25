@@ -51,22 +51,9 @@ spec:
     stages {
         stage('Test') {
             when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
-            failFast true
-            parallel {
-                stage('MySQL') {
-                   steps {
-                       container(name: 'pysql') {
-                       }
-                  }
-                }
-                stage('Python') {
-                  steps {
-                       container(name: 'python') {
-                           sh 'pip3 install mysql-connector-python && pip3 install requests'
-                           sh 'python3 test.py 4'
-                       }
-                  }
-                }
+            steps {
+                sh 'pip3 install mysql-connector-python && pip3 install requests'
+                sh 'python3 test.py 4'
             }
         }
         stage('Image Build') {
