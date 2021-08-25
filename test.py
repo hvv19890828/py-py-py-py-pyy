@@ -100,8 +100,8 @@ for iter in range(1,iter_range+1):
       
           mycursor = db.cursor()
           try:
-              if iter == 1:
-                 mycursor.execute("drop TABLE data")
+#              if iter == 1:
+#                 mycursor.execute("drop TABLE data")
               mycursor.execute("CREATE TABLE IF NOT EXISTS data (iteration int, token VARCHAR(255))")
           except:
               print(
