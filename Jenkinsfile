@@ -12,6 +12,15 @@ spec:
     - sleep
     args:
     - infinity
+  - name: pysql
+    image: mysql
+    env:
+    - name: MYSQL_DATABASE
+      value: "hvv"
+    - name: MYSQL_ROOT_PASSWORD
+      value: "user1!"
+    ports:
+    - containerPort: 3306
   - name: kaniko
     workingDir: /tmp/jenkins
     image: gcr.io/kaniko-project/executor:debug
@@ -44,10 +53,23 @@ spec:
     stages {
         stage('Test') {
             when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
-            steps {
-                sh 'pip3 install mysql-connector-python && pip3 install requests'
-                sh 'python3 test.py'
-            }
+            failFast true
+            parallel {
+                stage('MySQL') {
+                   container(name: 'pysql') {
+                       steps {
+
+                       }
+                  }
+                }
+                stage('Python') {
+                  container(name: 'python') {
+                       steps {
+                           sh 'pip3 install mysql-connector-python && pip3 install requests'
+                           sh 'python3 test.py'
+                       }
+                  }
+                }
         }
         stage('Image Build') {
             when { expression { env.GIT_BRANCH == 'hvv19890828/master' } }
