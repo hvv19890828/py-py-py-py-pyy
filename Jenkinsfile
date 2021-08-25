@@ -58,7 +58,7 @@ spec:
                 stage('MySQL') {
                    container(name: 'pysql') {
                        steps {
-
+                           sh 'echo hello'
                        }
                   }
                 }
