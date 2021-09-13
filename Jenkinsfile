@@ -12,6 +12,13 @@ spec:
     - sleep
     args:
     - infinity
+  - name: pysql
+    image: mysql
+    env:
+    - name: MYSQL_DATABASE
+      value: "hvv"
+    - name: MYSQL_ROOT_PASSWORD
+      value: "user1!"
   - name: kaniko
     workingDir: /tmp/jenkins
     image: gcr.io/kaniko-project/executor:debug
