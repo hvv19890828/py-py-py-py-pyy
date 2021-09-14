@@ -43,7 +43,9 @@ spec:
         }
     }
 
-    options { buildDiscarder(logRotator(numToKeepStr: '3')) }
+    options {
+       buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2'))
+    }
 
     environment {
          VERS    = sh(returnStdout:  true, script: 'git tag | grep -E "^v[[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3}$" | sort -V | tail -1').trim()
