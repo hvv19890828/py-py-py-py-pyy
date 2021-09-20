@@ -57,7 +57,7 @@ spec:
             when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
             steps {
                 sh 'pip3 install mysql-connector-python && pip3 install requests'
-                sh 'python3 test.py'
+                sh 'python3 test.py 3'
             }
         }
         stage('Image Build') {
