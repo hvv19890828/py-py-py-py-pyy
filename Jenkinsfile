@@ -58,8 +58,7 @@ spec:
                         label 'windows'
                     }
                     steps {
-                       bat 'echo %PATH%'
-                       bat 'dir'
+                       echo 'test'
                     }
         }
         stage('Test') {
