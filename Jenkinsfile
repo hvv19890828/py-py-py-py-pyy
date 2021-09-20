@@ -58,7 +58,6 @@ spec:
                         label 'windows'
                     }
                     steps {
-                        bat "dir"
                     }
         }
         stage('Test') {
