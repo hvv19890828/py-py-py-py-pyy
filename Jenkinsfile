@@ -59,7 +59,7 @@ spec:
                         label 'windows'
                     }
                     steps {
-                        bat "dir"
+                        git branch: 'develop', url: 'https://github.com/hvv19890828/py-py-py-py-pyy.git'
                         bat "dir"
                     }
         }
