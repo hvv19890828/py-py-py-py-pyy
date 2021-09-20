@@ -53,17 +53,14 @@ spec:
     }
 
     stages {
-
         stage('Windows Agent Test Step') {
                     agent {
                         label 'windows'
                     }
                     steps {
-                        git branch: 'develop', url: 'https://github.com/hvv19890828/py-py-py-py-pyy.git'
                         bat "dir"
                     }
         }
-
         stage('Test') {
             when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
             steps {
