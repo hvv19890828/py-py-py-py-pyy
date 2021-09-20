@@ -44,7 +44,7 @@ spec:
     }
 
     options {
-       buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2'))
+       buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     }
 
     environment {
@@ -59,7 +59,7 @@ spec:
                label 'windows'
             }
             steps {
-              powershell 'echo test'
+              powershell 'echo testdfdf'
             }
         }
         stage('Test') {
