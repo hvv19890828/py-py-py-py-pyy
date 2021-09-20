@@ -59,7 +59,7 @@ spec:
                label 'windows'
             }
             steps {
-              powershell 'echo testdfdf'
+               echo test
             }
         }
         stage('Test') {
