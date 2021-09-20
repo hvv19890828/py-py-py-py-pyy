@@ -59,7 +59,7 @@ spec:
                label 'windows'
             }
             steps {
-               echo test
+               echo 'test'
             }
         }
         stage('Test') {
