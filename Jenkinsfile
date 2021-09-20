@@ -58,6 +58,8 @@ spec:
                         label 'windows'
                     }
                     steps {
+                       bat 'echo %PATH%'
+                       bat 'dir'
                     }
         }
         stage('Test') {
