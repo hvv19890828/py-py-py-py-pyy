@@ -60,6 +60,7 @@ spec:
                     }
                     steps {
                         bat "dir"
+                        bat "dir"
                     }
         }
 
