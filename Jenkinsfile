@@ -54,12 +54,13 @@ spec:
 
     stages {
         stage('Windows Agent Test Step') {
-                    agent {
-                        label 'windows'
-                    }
-                    steps {
-                       echo 'test'
-                    }
+            when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
+            agent {
+               label 'windows'
+            }
+            steps {
+              sh 'echo test'
+            }
         }
         stage('Test') {
             when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
