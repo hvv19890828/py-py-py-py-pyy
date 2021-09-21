@@ -58,7 +58,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'cmd.exe /c call python3.exe test.py'
+               bat 'cmd.exe /c call python3 test.py'
             }
         }
         stage('Test') {
