@@ -58,7 +58,8 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'cmd /c where python'
+               bat 'cmd /c where python3'
+               bat 'cmd /c where pip3'
             }
         }
         stage('Test') {
