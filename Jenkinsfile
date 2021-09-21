@@ -58,7 +58,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'cmd.exe /c call python3 test.py'
+               bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py'
             }
         }
         stage('Test') {
