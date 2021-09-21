@@ -58,7 +58,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'cmd /c echo hello'
+               bat 'cmd /c python --version'
             }
         }
         stage('Test') {
