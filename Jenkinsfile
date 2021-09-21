@@ -39,7 +39,6 @@ spec:
             - key: .dockerconfigjson
               path: config.json
 '''
-            defaultContainer 'python'
         }
     }
 
@@ -62,14 +61,16 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'cmd.exe /c echo ddd'
+               bat "cmd /c echo hello"
             }
         }
         stage('Test') {
             when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
             steps {
-                sh 'pip3 install mysql-connector-python && pip3 install requests'
-                sh 'python3 test.py 3'
+               container('python') {
+                  sh 'pip3 install mysql-connector-python && pip3 install requests'
+                  sh 'python3 test.py 3'
+               }
             }
         }
         stage('Image Build') {
