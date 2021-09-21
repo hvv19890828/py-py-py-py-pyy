@@ -58,7 +58,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat "echo hello"
+               bat 'dir'
             }
         }
         stage('Test') {
