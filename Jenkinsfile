@@ -58,7 +58,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'python test.py'
+               bat 'python --version'
             }
         }
         stage('Test') {
