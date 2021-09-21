@@ -58,8 +58,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'cmd /c where python3'
-               bat 'cmd /c where pip3'
+               bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe test.py'
             }
         }
         stage('Test') {
