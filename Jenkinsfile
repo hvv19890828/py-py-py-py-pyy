@@ -59,7 +59,6 @@ spec:
             }
             steps {
                bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py'
-               bat 'dir'
             }
         }
         stage('Test') {
