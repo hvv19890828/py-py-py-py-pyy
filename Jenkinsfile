@@ -58,7 +58,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'dir'
+               bat 'python test.py'
             }
         }
         stage('Test') {
