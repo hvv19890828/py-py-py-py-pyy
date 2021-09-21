@@ -59,7 +59,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat '\"C:\\Windows\\System32\\cmd.exe\" /c echo hello'
+               bat 'cmd /c echo hello'
             }
         }
         stage('Test') {
