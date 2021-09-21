@@ -59,7 +59,7 @@ spec:
                label 'windows'
             }
             steps {
-               bat 'cmd /c echo hello'
+               bat 'cmd //c echo hello'
             }
         }
         stage('Test') {
