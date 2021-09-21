@@ -39,12 +39,11 @@ spec:
             - key: .dockerconfigjson
               path: config.json
 '''
-            defaultContainer 'python'
         }
     }
 
     options {
-       buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2'))
+       buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     }
 
     environment {
@@ -53,11 +52,22 @@ spec:
     }
 
     stages {
+        stage('Windows Agent Test Step') {
+            when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
+            agent {
+               label 'windows'
+            }
+            steps {
+               bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py'
+            }
+        }
         stage('Test') {
             when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
             steps {
-                sh 'pip3 install mysql-connector-python && pip3 install requests'
-                sh 'python3 test.py 3'
+               container('python') {
+                  sh 'pip3 install mysql-connector-python && pip3 install requests'
+                  sh 'python3 test.py 3'
+               }
             }
         }
         stage('Image Build') {
