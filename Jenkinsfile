@@ -55,11 +55,14 @@ spec:
     stages {
         stage('Windows Agent Test Step') {
             when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
+            environment {
+               PATH = "C:\\WINDOWS\\SYSTEM32"
+            }
             agent {
                label 'windows'
             }
             steps {
-               bat 'C:\\Windows\\System32\\cmd.exe'
+               bat 'cmd.exe /c echo ddd'
             }
         }
         stage('Test') {
