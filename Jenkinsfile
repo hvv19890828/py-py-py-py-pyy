@@ -81,10 +81,10 @@ spec:
                 }
             }
         }
-        stage('Chuck') {
-            steps {
-                chuckNorris()
-            }
+    }
+    post {
+        always {
+             chuckNorris()
         }
     }
 }
