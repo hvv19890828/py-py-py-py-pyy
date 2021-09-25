@@ -77,6 +77,7 @@ spec:
                     sh '''#!/busybox/sh
                     /kaniko/executor --context `pwd` \
                         --destination hvv19890828/py-py-py-py-pyy:${VERS}-${FULL_BN}
+                        --destination hvv19890828/py-py-py-py-pyy:latest
                     '''
                 }
             }
