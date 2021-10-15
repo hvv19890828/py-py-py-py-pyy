@@ -59,7 +59,7 @@ spec:
                        label 'windows'
                     }
                     steps {
-                       bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py'
+                       bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py 3'
                     }
                 }
                 stage('Linux Agent Test Step') {
