@@ -52,26 +52,26 @@ spec:
     }
 
     stages {
-        stage('Windows Agent Test Step') {
-            when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
-            agent {
-               label 'windows'
+        parallel {
+            stage('Windows Agent Test Step') {
+                agent {
+                   label 'windows'
+                }
+                steps {
+                   bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py'
+                }
             }
-            steps {
-               bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py'
-            }
-        }
-        stage('Test') {
-            when { expression { env.GIT_BRANCH.startsWith("hvv19890828/ma") == false } }
-            steps {
-               container('python') {
-                  sh 'pip3 install mysql-connector-python && pip3 install requests'
-                  sh 'python3 test.py 3'
-               }
+            stage('Test') {
+                steps {
+                   container('python') {
+                      sh 'pip3 install mysql-connector-python && pip3 install requests'
+                      sh 'python3 test.py 3'
+                   }
+                }
             }
         }
         stage('Image Build') {
-            when { expression { env.GIT_BRANCH == 'hvv19890828/master' } }
+            when { expression { env.GIT_BRANCH.startsWith("hvv19890828/master") == true } }
             steps {
                 container(name: 'kaniko', shell: '/busybox/sh') {
                     sh '''#!/busybox/sh
