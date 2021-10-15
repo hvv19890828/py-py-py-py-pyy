@@ -52,21 +52,23 @@ spec:
     }
 
     stages {
-        parallel {
-            stage('Windows Agent Test Step') {
-                agent {
-                   label 'windows'
+        stage('Tests') {
+            parallel {
+                stage('Windows Agent Test Step') {
+                    agent {
+                       label 'windows'
+                    }
+                    steps {
+                       bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py'
+                    }
                 }
-                steps {
-                   bat 'C:\\Users\\ViacheslavHudzovskyi\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py'
-                }
-            }
-            stage('Test') {
-                steps {
-                   container('python') {
-                      sh 'pip3 install mysql-connector-python && pip3 install requests'
-                      sh 'python3 test.py 3'
-                   }
+                stage('Linux Agent Test Step') {
+                    steps {
+                       container('python') {
+                          sh 'pip3 install mysql-connector-python && pip3 install requests'
+                          sh 'python3 test.py 3'
+                       }
+                    }
                 }
             }
         }
