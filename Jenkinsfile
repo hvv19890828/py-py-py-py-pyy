@@ -88,6 +88,13 @@ spec:
     post {
         always {
              chuckNorris()
+             publishHTML (target : [allowMissing: false,
+                         alwaysLinkToLastBuild: true,
+                         keepAll: true,
+                         reportDir: 'static-website-example',
+                         reportFiles: 'index.html',
+                         reportName: 'My Reports',
+                         reportTitles: 'The Report'])
         }
     }
 }
