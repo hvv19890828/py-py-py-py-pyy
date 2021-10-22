@@ -91,7 +91,7 @@ spec:
              publishHTML (target : [allowMissing: false,
                          alwaysLinkToLastBuild: true,
                          keepAll: true,
-                         reportDir: 'static-website-example',
+                         reportDir: 'coverage-report/html',
                          reportFiles: 'index.html',
                          reportName: 'My Reports',
                          reportTitles: 'The Report'])
