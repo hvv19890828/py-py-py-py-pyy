@@ -78,7 +78,7 @@ for iter in range(1,iter_range+1):
       
       try:
           r = requests.post('http://graph.facebook.com/')
-          print("Returning a kind of token as a result of a Facebook API test call " + r.json()['error']['fbtrace_id'])
+          print("Returning a kind of token as a result of a Facebook API test call: " + r.json()['error']['fbtrace_id'])
       except:
           print(
               "well ... it seems that there is no network connection ... not a really big deal .. but you know me .. I'm already pissed off ")
