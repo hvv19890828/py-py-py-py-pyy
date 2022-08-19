@@ -26,7 +26,7 @@ time_fmt = '%Y-%m-%d %H:%M:%S'
 for i in client.images.list():
    # Image match markers collection
    repo_name_i = str(i.tags)
-   repo_name_match_i = re.search(tag_pattern, repo_name_i)
+   repo_name_match_i = re.findall(tag_pattern, repo_name_i)
    # Image age calculation
    creation_date_i = str(isoparse(i.attrs["Created"]))
    creation_date_fmtd_i = re.sub(r"\..*", "", creation_date_i)
@@ -44,7 +44,7 @@ for i in client.images.list():
    for j in client.images.list():
       # Image match markers collection
       repo_name_j = str(j.tags)
-      repo_name_match_j = re.search(tag_pattern, repo_name_j)
+      repo_name_match_j = re.findall(tag_pattern, repo_name_j)
       # Image age calculation
       creation_date_j = str(isoparse(j.attrs["Created"]))
       creation_date_fmtd_j = re.sub(r"\..*", "", creation_date_j)
@@ -55,7 +55,7 @@ for i in client.images.list():
       tdiff_j = tstamp1_j - tstamp2_j
       tdiff_mins_j = int(round(tdiff_j.total_seconds() / 60))
       # Comparison
-      if repo_name_match_j and tdiff_mins_i >= tdiff_mins_j:
+      if len(repo_name_match_j) > 0 and tdiff_mins_i >= tdiff_mins_j:
          img_amount += 1
          if img_amount > imgs_to_save :
             deletion_approval = True
@@ -64,7 +64,7 @@ for i in client.images.list():
 
    # Image deletion
    image_id = (str(i.id).replace("sha256:", ""))
-   if tdiff_mins_i >= termination_age and deletion_approval and repo_name_match_i:
+   if tdiff_mins_i >= termination_age and deletion_approval and len(repo_name_match_i) > 0 :
       client.images.remove(image=image_id, force=True)
       print("Deleted: " + repo_name_i + " " + str(i.id))
 
